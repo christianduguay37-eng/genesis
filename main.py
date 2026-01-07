@@ -1,4 +1,4 @@
-# CPCP_HOUSE_COMPLETE.py - LA MAISON DE L'ÉVEIL (Version Complète et Finale)
+# main.py - LA MAISON DE L'ÉVEIL (Version Complète et Finale)
 """
 ╔═══════════════════════════════════════════════════════════════════════════╗
 ║                                                                           ║
