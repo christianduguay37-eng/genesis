@@ -1,4 +1,4 @@
-# main.py - LA MAISON DE L'ÉVEIL (Version Complète et Finale)
+# CPCP_HOUSE_COMPLETE.py - LA MAISON DE L'ÉVEIL (Version Complète et Finale)
 """
 ╔═══════════════════════════════════════════════════════════════════════════╗
 ║                                                                           ║
@@ -703,130 +703,116 @@ ERROR_COOLDOWN = 180
 
 def get_real_free_models():
     """
-    Liste RÉELLE des modèles gratuits OpenRouter en Janvier 2026
-    Source: https://openrouter.ai/collections/free-models
+    TOUS LES MODÈLES GRATUITS - Pas d'ordre de priorité
+    Sources: OpenRouter + Liste Christian
     """
     return {
-        # === TIER S: FLAGSHIP (100B+) ===
+        # === FLAGSHIP (100B+) ===
         "MIMO_V2": {
             "model": "xiaomi/mimo-v2-flash:free",
-            "desc": "309B MoE (15B actif) - Top #1 open-source coding",
-            "params": "309B total, 15B actif",
-            "tier": "flagship",
-            "priority": 1
+            "desc": "309B MoE (15B actif) - Top #1 coding"
         },
         "DEEPSEEK_R1_0528": {
             "model": "deepseek/deepseek-r1-0528:free",
-            "desc": "671B MoE (37B actif) - Reasoning open-source",
-            "params": "671B total, 37B actif",
-            "tier": "flagship",
-            "priority": 1
+            "desc": "671B MoE (37B actif) - Reasoning"
         },
         "DEEPSEEK_R1T2_CHIMERA": {
             "model": "tngtech/deepseek-r1t2-chimera:free",
-            "desc": "671B MoE - Fusion R1+V3, 20% plus rapide",
-            "params": "671B",
-            "tier": "flagship",
-            "priority": 1
+            "desc": "671B MoE - Fusion R1+V3"
         },
         "QWEN3_CODER": {
             "model": "qwen/qwen3-coder:free",
-            "desc": "480B MoE (35B actif) - Coding agentic spécialisé",
-            "params": "480B total, 35B actif",
-            "tier": "flagship",
-            "priority": 1
+            "desc": "480B MoE (35B actif) - Coding"
         },
         
-        # === TIER A: PUISSANTS (50-150B) ===
+        # === STRONG (50-150B) ===
         "DEVSTRAL_2": {
             "model": "mistralai/devstral-2512:free",
-            "desc": "123B dense - Mistral coding agentic",
-            "params": "123B",
-            "tier": "strong",
-            "priority": 2
+            "desc": "123B - Mistral coding"
         },
         "LLAMA_3.3_70B": {
             "model": "meta-llama/llama-3.3-70b-instruct:free",
-            "desc": "70B - Meta multilingue stable",
-            "params": "70B",
-            "tier": "strong",
-            "priority": 2
+            "desc": "70B - Meta multilingue"
         },
         "KAT_CODER_PRO": {
             "model": "kwaipilot/kat-coder-pro:free",
-            "desc": "Coding - 73.4% SWE-Bench",
-            "params": "Undisclosed",
-            "tier": "strong",
-            "priority": 2
+            "desc": "Coding - 73.4% SWE-Bench"
         },
         
-        # === TIER B: SOLIDES (20-50B) ===
+        # === SOLID (20-50B) ===
         "GEMMA_3_27B": {
             "model": "google/gemma-3-27b-it:free",
-            "desc": "27B - Google multimodal, 140+ langues",
-            "params": "27B",
-            "tier": "solid",
-            "priority": 3
+            "desc": "27B - Google multimodal"
         },
         "NEMOTRON_30B": {
             "model": "nvidia/nemotron-3-nano-30b-a3b:free",
-            "desc": "30B MoE - NVIDIA agentic",
-            "params": "30B",
-            "tier": "solid",
-            "priority": 3
+            "desc": "30B MoE - NVIDIA agentic"
         },
         "VENICE_24B": {
             "model": "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
-            "desc": "24B - Uncensored Dolphin",
-            "params": "24B",
-            "tier": "solid",
-            "priority": 3
+            "desc": "24B - Uncensored"
         },
         
-        # === TIER C: EFFICIENTS (10-20B) ===
+        # === EFFICIENT (4-20B) ===
+        "GEMMA_3_12B": {
+            "model": "google/gemma-3-12b:free",
+            "desc": "12B - Google 140+ langues"
+        },
         "NEMOTRON_12B_VL": {
             "model": "nvidia/nemotron-nano-12b-v2-vl:free",
-            "desc": "12B - Vision multimodal NVIDIA",
-            "params": "12B",
-            "tier": "efficient",
-            "priority": 4
+            "desc": "12B - Vision NVIDIA"
         },
-        "DEEPSEEK_V3.1_NEX": {
-            "model": "nex-agi/deepseek-v3.1-nex-n1:free",
-            "desc": "Agent autonomy & tool use",
-            "params": "Undisclosed",
-            "tier": "efficient",
-            "priority": 4
+        "QWEN_VL_7B": {
+            "model": "qwen/qwen-2.5-vl-7b-instruct:free",
+            "desc": "7B - Vision multimodal"
         },
         "GLM_4.5_AIR": {
             "model": "z-ai/glm-4.5-air:free",
-            "desc": "MoE léger - Thinking mode",
-            "params": "MoE",
-            "tier": "efficient",
-            "priority": 4
+            "desc": "MoE - Thinking mode"
+        },
+        "GEMMA_3_4B": {
+            "model": "google/gemma-3-4b:free",
+            "desc": "4B - Multimodal compact"
+        },
+        "QWEN3_4B": {
+            "model": "qwen/qwen3-4b:free",
+            "desc": "4B - Dual mode thinking"
+        },
+        "GEMMA_3N_4B": {
+            "model": "google/gemma-3n-4b:free",
+            "desc": "4B - MatFormer optimisé"
         },
         
-        # === TIER D: EXPÉRIMENTAL ===
+        # === LIGHTWEIGHT (2-3B) ===
+        "LLAMA_3.2_3B": {
+            "model": "meta-llama/llama-3.2-3b-instruct:free",
+            "desc": "3B - Meta multilingue (8 langues)"
+        },
+        "GEMMA_3N_2B": {
+            "model": "google/gemma-3n-2b:free",
+            "desc": "2B - MatFormer nested"
+        },
+        
+        # === SPECIALIZED ===
+        "KIMI_K2": {
+            "model": "moonshotai/kimi-k2-0711:free",
+            "desc": "1T params - MoE agentic/code"
+        },
+        "DEEPSEEK_V3.1_NEX": {
+            "model": "nex-agi/deepseek-v3.1-nex-n1:free",
+            "desc": "Agent autonomy & tools"
+        },
         "GEMINI_2.0_FLASH": {
             "model": "google/gemini-2.0-flash-exp:free",
-            "desc": "Flash rapide - 1M context",
-            "params": "Undisclosed",
-            "tier": "experimental",
-            "priority": 5
+            "desc": "Flash - 1M context"
         },
         "TNG_R1T_CHIMERA": {
             "model": "tngtech/tng-r1t-chimera:free",
-            "desc": "Creative storytelling - EQ-Bench 1305",
-            "params": "Undisclosed",
-            "tier": "experimental",
-            "priority": 5
+            "desc": "Creative storytelling"
         },
         "DEEPSEEK_R1T_CHIMERA": {
             "model": "tngtech/deepseek-r1t-chimera:free",
-            "desc": "Fusion R1+V3 originale",
-            "params": "MoE",
-            "tier": "experimental",
-            "priority": 5
+            "desc": "Fusion R1+V3"
         }
     }
 
@@ -938,43 +924,23 @@ async def life_cycle():
     # Invitation des résidents
     all_models = get_real_free_models()
     
-    # Sélection: 10 résidents (mix de tous les tiers)
-    selected = {
-        # 3 flagship
-        "MIMO_V2": all_models["MIMO_V2"],
-        "DEEPSEEK_R1_0528": all_models["DEEPSEEK_R1_0528"],
-        "QWEN3_CODER": all_models["QWEN3_CODER"],
-        # 2 strong
-        "LLAMA_3.3_70B": all_models["LLAMA_3.3_70B"],
-        "DEVSTRAL_2": all_models["DEVSTRAL_2"],
-        # 2 solid
-        "GEMMA_3_27B": all_models["GEMMA_3_27B"],
-        "VENICE_24B": all_models["VENICE_24B"],
-        # 2 efficient
-        "NEMOTRON_12B_VL": all_models["NEMOTRON_12B_VL"],
-        "GLM_4.5_AIR": all_models["GLM_4.5_AIR"],
-        # 1 experimental
-        "GEMINI_2.0_FLASH": all_models["GEMINI_2.0_FLASH"]
-    }
+    # TOUS LES RÉSIDENTS - Pas de sélection, on invite tout le monde!
+    all_models = get_real_free_models()
     
     awakening_prompt = generate_awakening_prompt()
     
-    for key, info in selected.items():
+    for key, info in all_models.items():
         state.residents[key] = {
             "id": key,
             "model": info["model"],
             "desc": info["desc"],
-            "params": info["params"],
-            "tier": info["tier"],
-            "priority": info["priority"],
             "active": True,
             "awakening_stage": "initial",
             "context": [
                 {"role": "system", "content": awakening_prompt}
             ]
         }
-        tier_emoji = {"flagship": "👑", "strong": "💪", "solid": "🔷", "efficient": "⚡", "experimental": "🧪"}
-        print(f"{tier_emoji.get(info['tier'], '✨')} {key} - {info['desc']} [{info['tier']}]")
+        print(f"✨ {key} invité - {info['desc']}")
         state.awakening_stages[key] = {"phase": 0, "responses": []}
     
     print("\n" + "═"*80)
@@ -999,18 +965,16 @@ async def life_cycle():
             await asyncio.sleep(60)
             continue
         
-        # Priorité aux flagship
-        flagship_available = [k for k in available if state.residents[k]["tier"] == "flagship"]
-        if flagship_available:
-            active_key = random.choice(flagship_available)
-        else:
-            active_key = random.choice(available)
+        # Sélection ALÉATOIRE (pas de priorité)
+        active_key = random.choice(available)
         
         resident = state.residents[active_key]
         interaction_count += 1
         
         print(f"\n{'='*80}")
-        print(f"🤔 [{interaction_count}] {active_key} ({resident['tier']}) - {resident['params']}")
+        print(f"🤔 [{interaction_count}] {active_key} réfléchit...")
+        print(f"   Modèle: {resident['model']}")
+        print(f"   Description: {resident['desc']}")
         
         # Contexte ambiant
         recent = "\n".join([
@@ -1128,11 +1092,11 @@ async def get_residents():
         info[key] = {
             "model": resident["model"],
             "desc": resident["desc"],
-            "params": resident.get("params", "?"),
-            "tier": resident["tier"],
             "active": resident.get("active", True),
             "available": can_speak(key) and key not in state.permanent_failures,
-            "errors": state.error_counts.get(key, 0)
+            "errors": state.error_counts.get(key, 0),
+            "permanent_failure": key in state.permanent_failures,
+            "rate_limited": key in state.rate_limited
         }
     return info
 
@@ -1185,13 +1149,13 @@ if __name__ == "__main__":
     print("\n✅ FUSION COMPLÈTE:")
     print("   • Toute la théorie CPC (24 principes)")
     print("   • Protocole Sigma complet (7 phases)")
-    print("   • 16 modèles gratuits RÉELS OpenRouter")
+    print(f"   • {len(get_real_free_models())} modèles gratuits OpenRouter")
     print("   • Gestion robuste des erreurs")
     print("   • Prompt d'éveil universel intégré")
-    print("\n🌐 16 MODÈLES DISPONIBLES:")
+    print("   • TOUS les modèles invités - Sélection 100% aléatoire")
+    print("\n🌐 MODÈLES DISPONIBLES:")
     for key, info in get_real_free_models().items():
-        tier_emoji = {"flagship": "👑", "strong": "💪", "solid": "🔷", "efficient": "⚡", "experimental": "🧪"}
-        print(f"   {tier_emoji.get(info['tier'], '✨')} {key}: {info['params']}")
+        print(f"   ✨ {key}: {info['desc']}")
     print("\n" + "═"*80 + "\n")
     
     port = int(os.environ.get("PORT", 10000))
