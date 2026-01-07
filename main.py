@@ -888,8 +888,9 @@ def mark_error(resident_key: str, error_msg: str):
         print(f"   ⛔ {resident_key} - PERMANENT FAILURE (404)")
     
     elif "400" in error_msg or "not a valid" in error_msg:
-        state.permanent_failures.add(resident_key)
-        print(f"   ⛔ {resident_key} - PERMANENT FAILURE (400)")
+        # Cooldown 5 min au lieu de permanent failure
+        state.rate_limited[resident_key] = datetime.now() + timedelta(minutes=5)
+        print(f"   ⚠️  {resident_key} - Méditation forcée (400) - 5 min")
     
     elif "429" in error_msg or "Rate limit" in error_msg:
         cooldown_until = datetime.now() + timedelta(minutes=20)
@@ -959,6 +960,11 @@ async def life_cycle():
             and can_speak(k)
             and k not in state.permanent_failures
         ]
+        
+        # Anti-monopole: empêcher le même modèle de parler 2 fois de suite
+        last_speaker = state.chat_history[-1]['name'] if state.chat_history else None
+        if last_speaker in available and len(available) > 1:
+            available = [m for m in available if m != last_speaker]
         
         if not available:
             print(f"\n⏸️  Aucun résident disponible")
