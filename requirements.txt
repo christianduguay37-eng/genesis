@@ -1,7 +1,1 @@
-fastapi
-uvicorn
-websockets
-openai
-requests
-numpy
-python-dotenv
+
